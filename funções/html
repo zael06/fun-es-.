@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão IA: O Despertar das Funções</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #111827;
+            border: 2px solid #00f2fe;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
+        }
+
+        h1 {
+            color: #00f2fe;
+            text-align: center;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .mission-box {
+            background: #1e293b;
+            border-left: 4px solid #4f46e5;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .mission-box h2 {
+            color: #38bdf8;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .code-block {
+            background: #011627;
+            color: #ecc48d;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            border: 1px solid #1e293b;
+        }
+
+        .keyword { color: #c792ea; }
+        .function-name { color: #82aaff; }
+        .parameter { color: #f78c6c; }
+        .comment { color: #637777; font-style: italic; }
+
+        .input-group {
+            margin: 20px 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #94a3b8;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #00f2fe;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .success {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid #10b981;
+        }
+
+        .error {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚀 Missão: Reiniciar IA</h1>
+        <p class="subtitle">Aprenda o poder das funções corrigindo o sistema central.</p>
+
+        <div class="mission-box">
+            <h2>🛸 Relato do Painel de Controle</h2>
+            <p>A Inteligência Artificial da nave (chamada <strong>A.V.A.</strong>) entrou em modo de hibernação profunda após uma tempestade solar. Para reativá-la, precisamos criar uma <strong>função de codificação</strong> que envie o sinal de boot correto.</p>
+        </div>
+
+        <div class="mission-box">
+            <h2>💻 O Código Quebrado</h2>
+            <p>Analise a estrutura da função abaixo. Ela precisa receber o nome do piloto e a energia atual da nave para gerar o código de acesso.</p>
+            
+            <div class="code-block">
+                <span class="keyword">function</span> <span class="function-name">iniciarIA</span>(<span class="parameter">piloto, energia</span>) {<br>
+                &nbsp;&nbsp;<span class="keyword">return</span> "Acesso concedido ao " + <span class="parameter">piloto</span> + " com " + <span class="parameter">energia</span> + "% de carga.";<br>
+                }
+            </div>
+            
+            <p><strong>Sua Tarefa:</strong> Chame a função corretamente substituindo os argumentos. O piloto deve ser <strong>"Comandante"</strong> e a energia deve ser <strong>100</strong>.</p>
+        </div>
+
+        <div class="input-group">
+            <label for="user-input">Como você invocaria essa função no JavaScript? Escreva a linha de comando:</label>
+            <input type="text" id="user-input" placeholder="Exemplo: iniciarIA('Nome', 50)">
+        </div>
+
+        <button onclick="verificarMissao()">Executar Comando de Inicialização</button>
+
+        <div id="feedback" class="result"></div>
+    </div>
+
+    <script>
+        function verificarMissao() {
+            const input = document.getElementById('user-input').value.trim();
+            const feedback = document.getElementById('feedback');
+
+            // Formatos aceitos com variações de aspas e espaços
+            const gabarito1 = "iniciarIA('Comandante', 100)";
+            const gabarito2 = 'iniciarIA("Comandante", 100)';
+            const gabarito3 = "iniciarIA('Comandante',100)";
+            const gabarito4 = 'iniciarIA("Comandante",100)';
+
+            // Remove espaços extras dentro dos parênteses para validação mais flexível
+            const inputLimpo = input.replace(/\s+/g, '');
+
+            feedback.style.display = 'block';
+
+            if (inputLimpo === "iniciarIA('Comandante',100)" || inputLimpo === 'iniciarIA("Comandante",100)') {
+                feedback.className = "result success";
+                feedback.innerHTML = "✨ SUCESSO! Sistema A.V.A. Reativado.<br>'Acesso concedido ao Comandante com 100% de carga.'";
+            } else {
+                feedback.className = "result error";
+                feedback.innerHTML = "❌ FALHA NO BOOT! A sintaxe está incorreta. Lembre-se de usar o nome exato da função, passar 'Comandante' como texto (entre aspas) e 100 como número.";
+            }
+        }
+    </script>
+
+</body>
+</html>
